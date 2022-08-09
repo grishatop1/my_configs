@@ -1,0 +1,23 @@
+* {
+	background-color: transparent;
+	color: white;
+}
+
+#window {
+	padding: 10px;
+	background-color: #113f5c44;
+}
+
+#listview {
+	padding: 10px;
+}
+
+#element {
+	padding: 5px;
+	background-color: #0000005f;
+}
+
+#element.selected {
+	background-color: #0000009f;
+	border-radius: 5px;
+}
