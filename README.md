@@ -1,2 +1,2 @@
 # my-configs
- my configs for different programs :D
+ little backup for configs of mine
