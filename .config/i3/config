@@ -210,7 +210,7 @@ bindsym $mod+r mode "resize"
 bar {
     position top
     tray_output HDMI-A-0
-    status_command exec i3status
+    status_command exec pyi3status
     colors {
         background #0d2c40
         #background #000
