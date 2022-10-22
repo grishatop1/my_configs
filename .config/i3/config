@@ -22,9 +22,11 @@ exec --no-startup-id "setxkbmap -layout us,ru -option grp:win_space_toggle"
 
 #STARTUP ---------------------------
 exec --no-startup-id dunst
+exec_always --no-startup-id autotiling
 exec --no-startup-id udiskie
 exec --no-startup-id pasystray
 exec --no-startup-id flameshot
+exec --no-startup-id mpv /home/grisha/Music/xp.mp3
 #exec_always --no-startup-id picom --config .config/picom/picom.conf
 #exec_always --no-startup-id feh --bg-scale /home/grisha/Wallpapers/wp4.jpg
 
@@ -210,7 +212,8 @@ bindsym $mod+r mode "resize"
 bar {
     position top
     tray_output HDMI-A-0
-    status_command exec pyi3status
+    status_command exec py3status
+    font pango:monospace, FontAwesome 9
     colors {
         background #0d2c40
         #background #000
