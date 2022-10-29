@@ -16,24 +16,27 @@ gaps outer 2
 for_window [class="^.*"] border pixel 1
 default_orientation horizontal
 
+client.focused          #9400ff #9400ff #000000 #9400ff #9400ff
+
+workspace "I" output HDMI-A-0
+workspace "II" output DP-0
+
 #STARTUP SETTINGS
 exec_always --no-startup-id xinput --set-prop 'E-Signal USB Gaming Mouse' 'libinput Accel Speed' -1
-exec --no-startup-id "setxkbmap -layout us,ru -option grp:win_space_toggle"
+exec --no-startup-id "setxkbmap -layout us,ru -option grp:alt_space_toggle"
 
 #STARTUP ---------------------------
 exec --no-startup-id dunst
-exec_always --no-startup-id autotiling
 exec --no-startup-id udiskie
 exec --no-startup-id pasystray
 exec --no-startup-id flameshot
-exec --no-startup-id mpv /home/grisha/Music/xp.mp3
 #exec_always --no-startup-id picom --config .config/picom/picom.conf
 #exec_always --no-startup-id feh --bg-scale /home/grisha/Wallpapers/wp4.jpg
 
 #BINDINGS
-bindsym $mod+f exec thunar /home/grisha
+bindsym $mod+f exec nautilus /home/grisha
+bindsym $mod+button2 --whole-window kill
 bindsym $mod+d exec "rofi -show combi -combi-modi window,run,drun -modi combi"
-bindsym --release button2 kill
 bindsym Shift+Print exec --no-startup-id flameshot full -c
 bindsym Print exec --no-startup-id flameshot gui
 bindsym XF86HomePage exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
@@ -138,40 +141,40 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
-set $ws4 "4"
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10"
+set $ws1 "I"
+set $ws2 "II"
+set $ws3 "III"
+set $ws4 "IV"
+set $ws5 "V"
+set $ws6 "VI"
+set $ws7 "VII"
+set $ws8 "VIII"
+set $ws9 "IX"
+set $ws10 "X"
 
 # switch to workspace
-bindsym $mod+1 workspace number $ws1
-bindsym $mod+2 workspace number $ws2
-bindsym $mod+3 workspace number $ws3
-bindsym $mod+4 workspace number $ws4
-bindsym $mod+5 workspace number $ws5
-bindsym $mod+6 workspace number $ws6
-bindsym $mod+7 workspace number $ws7
-bindsym $mod+8 workspace number $ws8
-bindsym $mod+9 workspace number $ws9
-bindsym $mod+0 workspace number $ws10
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace number $ws1
-bindsym $mod+Shift+2 move container to workspace number $ws2
-bindsym $mod+Shift+3 move container to workspace number $ws3
-bindsym $mod+Shift+4 move container to workspace number $ws4
-bindsym $mod+Shift+5 move container to workspace number $ws5
-bindsym $mod+Shift+6 move container to workspace number $ws6
-bindsym $mod+Shift+7 move container to workspace number $ws7
-bindsym $mod+Shift+8 move container to workspace number $ws8
-bindsym $mod+Shift+9 move container to workspace number $ws9
-bindsym $mod+Shift+0 move container to workspace number $ws10
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -211,15 +214,15 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
     position top
-    tray_output HDMI-A-0
     status_command exec py3status
     font pango:monospace, FontAwesome 9
+    tray_output HDMI-A-0
     colors {
-        background #0d2c40
+        background #181818
         #background #000
 	statusline #ffffff
 
-        focused_workspace  #ffffff #285577
+        focused_workspace  #ffffff #9400ff
         active_workspace   #ffffff #333333
         inactive_workspace #888888 #222222
         urgent_workspace   #ffffff #900000
