@@ -18,18 +18,20 @@ default_orientation horizontal
 
 client.focused          #9400ff #9400ff #000000 #9400ff #9400ff
 
-workspace "I" output HDMI-A-0
-workspace "II" output DP-0
 
 #STARTUP SETTINGS
 exec_always --no-startup-id xinput --set-prop 'E-Signal USB Gaming Mouse' 'libinput Accel Speed' -1
 exec --no-startup-id "setxkbmap -layout us,ru -option grp:alt_space_toggle"
 
 #STARTUP ---------------------------
+
+exec firefox
+
 exec --no-startup-id dunst
 exec --no-startup-id udiskie
 exec --no-startup-id pasystray
 exec --no-startup-id flameshot
+exec --no-startup-id lxqt-policykit-agent
 #exec_always --no-startup-id picom --config .config/picom/picom.conf
 #exec_always --no-startup-id feh --bg-scale /home/grisha/Wallpapers/wp4.jpg
 
@@ -41,6 +43,10 @@ bindsym Shift+Print exec --no-startup-id flameshot full -c
 bindsym Print exec --no-startup-id flameshot gui
 bindsym XF86HomePage exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
 bindsym XF86Mail exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym $mod+button4 --whole-window focus left
+bindsym $mod+button5 --whole-window focus right
+
+bindcode 225 exec poweroff
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -75,7 +81,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec --no-startup-id i3-sensible-terminal
+bindsym $mod+Return exec --no-startup-id alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -151,6 +157,10 @@ set $ws7 "VII"
 set $ws8 "VIII"
 set $ws9 "IX"
 set $ws10 "X"
+
+workspace "I" output HDMI-A-0
+workspace "II" output DP-0
+
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
