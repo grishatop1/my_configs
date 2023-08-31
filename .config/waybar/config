@@ -43,7 +43,7 @@
 		"path": "/"
 	},
     "hyprland/window": {
-        "max-length": 50,
+        "max-length": 80,
         "separate-outputs": true
     },
     "sway/mode": {
@@ -72,7 +72,7 @@
     },
     "clock": {
         // "timezone": "America/New_York",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "tooltip-format": "<big>{:%A, %d.%m.%Y - %H:%M}</big>\n<tt><small>{calendar}</small></tt>",
         "format-alt": "{:%Y-%m-%d}"
     },
     "cpu": {
