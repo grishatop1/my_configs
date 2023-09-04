@@ -22,14 +22,15 @@ order += "load"
 order += "memory"
 order += "tztime local"
 #order += "tztime nyc"
-order += "volume master"
+order += "volume_status"
 
 window {
-	max_width = 50
+	max_width = 90
 }
 
 wifi {
 	format = " {device} ({ip})"
+	device = "wlan0"
 }
 
 wireless _first_ {
@@ -55,17 +56,18 @@ load {
 }
 
 memory {
-        format = "<span color='#aa0000'>%used</span>  <span color='#00dd55'>%available</span>"
+        format = "<span color='#aa0000'>%used</span>  "
 }
 
 tztime local {
         format = "%d. %b - %H:%M:%S"
 }
 
-volume master {
-        format = " %volume "
-        format_muted = "♪: muted (%volume) "
-        device = "pipewire"
+volume_status {
+        format = "  {percentage}%"
+        format_muted = "  muted"
         mixer = "Master"
         mixer_idx = 0
+	button_up = 4
+	button_down = 5	
 }
